@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --prm_red: hsl(10, 79%, 65%);
+  --prm_cyan: hsl(186, 34%, 60%);
+
+  --ntrl_brown_100: hsl(25, 47%, 15%);
+  --ntrl_brown_50: hsl(28, 10%, 53%);
+  --ntrl_cream: hsl(27, 66%, 92%);
+  --ntrl_pale_orange: hsl(33, 100%, 98%);
+}
+
+body {
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--ntrl_cream);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+main {
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.3rem;
+}
+section {
+  padding: 1.7rem 2.2rem;
+  border-radius: 12px;
+}
+.container-A {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--prm_red);
+  color: var(--ntrl_cream);
+}
+.container-A div {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 0.94rem;
+}
+.container-A .balance_amount {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+}
+.container-B {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--ntrl_pale_orange);
+  color: var(--ntrl_brown_100);
+  padding-block: 40px;
+}
+.container-B .heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.container-B .line {
+  height: 2px;
+  background-color: var(--ntrl_cream);
+  margin-block: 1.3rem;
+}
+
+.container-B .graph {
+  min-height: 255px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-top: 60px;
+  padding-bottom: 45px;
+}
+.graph > div {
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 10px;
+  background-color: var(--prm_red);
+  border-radius: 4px;
+  transition: opacity 350ms ease-in;
+}
+.graph > div:hover {
+  opacity: 0.8;
+}
+.graph > div.largest {
+  background-color: var(--prm_cyan);
+}
+.graph > div span {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+.graph > div .x-value {
+  width: 100%;
+  bottom: -35px;
+  font-size: 0.94rem;
+  color: var(--ntrl_brown_50);
+}
+.graph > div .y-value {
+  width: calc(100% + 9px);
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  font-size: 0.94rem;
+  border-radius: 4px;
+  padding-block: 6.5px;
+  opacity: 0;
+  transition: opacity 350ms ease-in;
+}
+.graph > div:hover span.y-value {
+  opacity: 1;
+}
+.container-B .monthly_spending {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 0.4rem;
+  line-height: 1;
+}
+.monthly_spending div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.monthly_spending .last_month {
+  gap: 0.4rem;
+}
+.monthly_spending .this_month .this_month_amount {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+.monthly_spending .last_month .last_month_percentage {
+  font-weight: 700;
+  align-self: flex-end;
+}
+.monthly_spending .this_month span:first-child,
+.monthly_spending .last_month span:last-child {
+  font-size: 0.94rem;
+  font-weight: 400;
+  color: var(--ntrl_brown_50);
+}
+.attribution {
+  width: 100%;
+  text-align: center;
+  line-height: 1.2;
+  position: absolute;
+  font-size: 0.8rem;
+  bottom: 0.8rem;
+}
+.attribution a {
+  color: var(--prm_red);
+}
+@media screen and (max-width: 500px) {
+  section {
+    padding-inline: 20px;
+  }
+  .container-A {
+    padding-block: 20px;
+  }
+  .container-A .balance_amount {
+    font-size: 1.8rem;
+  }
+  .container-B {
+    padding-block: 28px;
+  }
+  .container-B .heading {
+    font-size: 1.5rem;
+  }
+  .container-B .graph {
+    min-height: 240px;
+    gap: 10px;
+    padding-top: 45px;
+  }
+  .graph > div .x-value {
+    font-size: 0.8rem;
+  }
+  .graph > div .y-value {
+    top: -43px;
+    width: calc(100% + 10px);
+    padding-block: 5px;
+  }
+
+  .container-B .line {
+    margin-block: 1rem;
+  }
+
+  .monthly_spending .this_month .this_month_amount {
+    font-size: 2rem;
+  }
+  .monthly_spending .this_month span:first-child,
+  .monthly_spending .last_month span:last-child {
+    font-size: 1rem;
+  }
+}
